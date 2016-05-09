@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<header>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../assets/public/jquery-2.2.3.min.js"></script>
+<script src="../assets/public/bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="../assets/public/bootstrap/css/bootstrap.css" />
+  <style type="text/css">
+    .nav-bar-logo {
+      width: 200px;
+      display: inline-block;
+      padding-left: 0px;
+    }
+    .nav-bar-logo img {
+      height: 30px;
+    }
+    @media (min-width: 768px) {
+      .nav-bar-logo {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-bar-logo img {
+        display: inline-block;
+        margin-left: 0px;
+      }
+    }
+    .navbar-custom {
+      height: 60px;
+      background-color:#333;
+    }
+    .shopping-car {
+      height: 30px;
+    }
+    .navbar-ul {
+      border-color:#FFffff;
+    }
+    .nav-bar-menu {
+
+    }
+  </style>
+</header>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+  <div class="container">
+    <div class="row">
+      <div class="navbar-header col-xs-12 col-sm-12 col-md-3">
+        <!--  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>-->
+        <div>
+          <a class="navbar-brand navbar-toggle nav-bar-logo"  data-toggle="collapse" data-target=".navbar-collapse">
+            <img src="http://7xtsva.com1.z0.glb.clouddn.com/logo.png" />
+          </a>
+        </div>
+      </div>
+      <div col-xs-12 col-sm-12 col-md-9>
+        <div class="navbar-collapse collapse" role="navigation">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-7">
+            <ul class="nav navbar-nav row">
+              <li class="col-xs-12 col-sm-12 col-md-4 dropdown">
+                  <a class="dropdown-toggle" type="button" id="dropdownMenu1" aria-expanded="true"  data-toggle="dropdown">
+                    Design
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                      <a>Starting Design</a>
+
+                    </li>
+
+                    <li><a href="#">My Lab</a></li>
+                    <li><a href="#">Materials</a></li>
+                  </ul>
+              </li>
+              <li class="col-xs-12 col-sm-12 col-md-4"><a>Shop</a></li>
+              <li class="col-xs-12 col-sm-12 col-md-4"><a>Community</a></li>
+            </ul>
+          </div>
+          <div  class="col-xs-12 col-sm-12 col-md-5">
+            <ul class="nav navbar-nav row">
+              <li class="col-xs-12 col-sm-12 col-md-4"><a><img class="shopping-car" src="http://7xtsva.com1.z0.glb.clouddn.com/shopping-car.jpg"/></a></li>
+              <li class="col-xs-12 col-sm-12 col-md-4"><a>Login</a></li>
+              <li class="col-xs-12 col-sm-12 col-md-4"><a>Sign up</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+  </div>
+</div>
+</body>
+
+<script src="../assets/public/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+</script>
+
+</html>
