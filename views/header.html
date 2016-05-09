@@ -83,7 +83,7 @@
       .nav-bar-menu li ul li {
         /*margin-left: -100px;*/
         line-height: 30px;
-        width:q50px;
+        width:200px;
         padding-left: 10px;
         margin-top: 5px;
 
@@ -93,15 +93,24 @@
         background: -moz-linear-gradient(right, red, black); /* Firefox 3.6 - 15 */
         background: linear-gradient(to right, red, black); /* 标准的语法 */
       }
+      .nav-bar-menu-design {
+        margin-left: 0%;
+      }
       .nav-bar-menu-design li {
         position: absolute;
         left: 0%;
       }
-      .nav-bar-menu-shop li {
+      .nav-bar-menu-shop {
+        margin-left: 30%;
+      }
+      .nav-bar-menu-shop ul {
         position: absolute;
         left: -100%;
       }
-      .nav-bar-menu-community li {
+      .nav-bar-menu-community {
+        margin-left: 30%;
+      }
+      .nav-bar-menu-community ul {
         position: absolute;
         left: -200%;
       }
@@ -184,41 +193,31 @@
                   <div class="col-md-6">
                     <div class="row nav-bar-menu">
 
-                      <li  class="col-xs-12 col-sm-12 col-md-4"><div class="touch_selector">Design</div>
-                        <ul class="nav-bar-menu-design">
+                      <li  class="nav-bar-menu-design"><div class="touch_selector">Design</div>
+                        <ul class="">
                           <li><div>Starting Design</div></li>
                           <li><div>My Lab</div></li>
                           <li><div>Materials</div></li>
                         </ul>
                       </li>
-                      <li  class="col-xs-12 col-sm-12 col-md-4"><div  class="touch_selector">Item 2</div>
-                        <ul class="nav-bar-menu-shop">
-                          <li><div>Sub 1 Item 1</div></li>
-                          <li><div href="/">Sub 1 Item 2</div>
+                      <li  class="nav-bar-menu-shop"><div  class="touch_selector">Shop</div>
+                        <ul class="">
+                          <li><div>Shop all categories</div></li>
+                          <li><div href="/">Home</div>
                             <ul>
                              <div width="100px" height="100px" background-color="green">YES</div>
                             </ul>
                           </li>
-                          <li><div href="http://jasonweaver.name/">Sub 1 Item 3</div>
-                            <ul>
-                              <li><div href="http://jasonweaver.name/">Sub 2 Item 1</div></li>
-                              <li><div href="http://jasonweaver.name/">Sub 2 Item 2</div>
-                                <ul>
-                                  <li><div href="http://jasonweaver.name/">Sub 3 Item 1</div></li>
-                                  <li><div href="http://jasonweaver.name/">Sub 3 Item 2</div></li>
-                                  <li><div href="http://jasonweaver.name/">Sub 3 Item 3</div></li>
-                                </ul>
-                              </li>
-                            </ul>
+                          <li><div>Jewerly</div>
                           </li>
                         </ul>
                       </li>
-                      <li  class="col-xs-12 col-sm-12 col-md-4"><div  class="touch_selector">item 3</div>
+                      <li  class="nav-bar-menu-community"><div  class="touch_selector">Community</div>
                         <ul class="nav-bar-menu-community">
-                          <li><div>Sub 3 Item 1</div></li>
-                          <li><div href="/">Sub 3 Item 2</div>
+                          <li><div>Blog</div></li>
+                          <li><div>Events</div>
 
-                          <li><div href="http://jasonweaver.name/">Sub 3 Item 3</div>
+                          <li><div>Jobs for Designers</div>
                           </li>
                         </ul>
                       </li>
