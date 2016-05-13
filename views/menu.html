@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexNav - A jQuery Plugin for Responsive Menus</title>
+    <link href="../assets/public/flexnav/css/flexnav.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="../assets/public/flexnav/css/page.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="../assets/public/flexnav/css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script src="../assets/public/jquery-2.2.3.min.js"></script>
+
+    <style type="text/css">
+        .menu {
+            background-color: #2aabd2;
+            width: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .submenu {
+            background-color: #3c763d;
+            width: 100px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+    </style><script type="text/javascript">
+
+    function SubMenu(instance,name,style,onHover) {
+        this.instance = instance;
+        this.name = name;
+        this.style = style;
+    }
+    function Menu(instance,name,style,subMenus) {
+        this.instance = instance;
+        this.name = name;
+        this.style = style;
+        this.subMenus = subMenus;
+    }
+    Menu.prototype.getComponent = function() {
+        return ("<div onclick='"+this.instance+".onClick()' " +
+        " class='"+this.style+"'> "+this.name+"</div>");
+    }
+    Menu.prototype.onClick=function() {
+        var submenu_html = "";
+        for (var i=0;i<this.subMenus.length;i++) {
+            submenu_html+= this.subMenus[i].getComponent();
+        }
+        console.log(submenu_html);
+        $("#submenu").html(submenu_html)
+
+    }
+    SubMenu.prototype.getComponent = function() {
+        return ("<div onclick='"+this.instance+".onClick()' " +
+        " class='"+this.style+"'> "+this.name+"</div>");
+    }
+    SubMenu.prototype.onClick=function() {
+        $("#content").html(this.content);
+    }
+
+
+    var design_sub1 = new SubMenu("design_sub1","dsub1","submenu");
+    var design_sub2 = new SubMenu("design_sub2","dsub2","submenu");
+    var submenus = new Array(design_sub1,design_sub2);
+    var design = new Menu("design","design","menu",submenus);
+
+    var shop_sub1 = new SubMenu("shop_sub1","ssub1","submenu");
+    shop_sub1.content = "shop sub sub 1";
+    var shop_sub2 = new SubMenu("shop_sub2","ssub2","submenu");
+    shop_sub2.content = "shop sub sub 2";
+
+    var s_submenus = new Array(shop_sub1,shop_sub2);
+    var shop = new Menu("shop","shop","menu",s_submenus);
+
+
+    $(document).ready(function() {
+        $("#menu").html(design.getComponent()+shop.getComponent());
+    });
+
+</script>
+
+</head>
+<body class="home-page">
+    <div id="menu" style="display: inline"></div>
+    <div id="submenu" style="margin-top: 50px"></div>
+    <div id="content" style="margin-top: 100px"></div>
+</body>
+
+</html>

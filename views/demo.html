@@ -1,49 +1,65 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Bootstrap 实例 - 响应式的导航栏</title>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>纯CSS制作的对话框特效代码</title>
+    <style>
+        .grey_box{
+            top: -341px;
+            width:740px; height:300px; line-height:40px; margin:40px auto;
+            padding-left:2em; background:#4f4f4f;font-size:12px; position:relative;
+            background: -webkit-linear-gradient( #4f4f4f , #989898); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient( #4f4f4f, #989898); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient( #4f4f4f, #989898); /* Firefox 3.6 - 15 */
+            background: linear-gradient( #4f4f4f , #989898); /* 标准的语法 */
+        }
+        .red_box{width:742px; height:302px; line-height:40px; margin:40px auto;
+            padding-left:2em; background:red;font-size:12px; position:relative;
+            background: -webkit-linear-gradient( #b62626 , #241f20); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient( #b62626, #241f20); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient( #b62626, #241f20); /* Firefox 3.6 - 15 */
+            background: linear-gradient( #b62626 , #241f20); /* 标准的语法 */
+        }
+        .box_cor{ width:0; height:0; font-size:0;border-style:solid;overflow:hidden; position:absolute; }
+        .cor_grey{border-width:7px 7px;border-color:transparent transparent #4f4f4f #4f4f4f ;left:80px; top:-14px;}
+        .cor_red{border-width:8px 8px;border-color:transparent transparent red red ;left:80px; top:-16px;}
+
+        .box_cor{ width:0; height:0; font-size:0;border-style:solid;overflow:hidden; position:absolute; }
+        .cor1{border-width:20px;border-color:#f3961c transparent transparent transparent;left:60px; bottom:-40px;}
+        .cor2{border-width:20px;border-color:transparent #f3961c transparent transparent;left:-40px; bottom:30px;}
+        .cor3{border-width:20px;border-color:transparent transparent #f3961c transparent;left:80px; top:-40px;}
+        .cor4{border-width:20px;border-color:transparent transparent transparent #f3961c;right:-40px; bottom:30px;}
+        .cor5{border-width:20px 10px;border-color:#f3961c #f3961c transparent transparent;left:60px; bottom:-40px;}
+        .cor6{border-width:20px 10px;border-color:#f3961c transparent #f00 transparent;left:-40px; bottom:30px;}
+        .cor7{border-width:20px 10px;border-color:transparent #f3961c #f3961c transparent;left:80px; top:-40px;}
+        .cor7{border-width:20px 10px;border-color:transparent #f3961c #f3961c transparent;left:80px; top:-40px;}
+
+        .box1{height:40px;background:#000;position:relative;}
+        .corner{width:0;height:0;font-size:0;border-width:20px 20px 20px;border-style:solid;border-color:#f00 transparent #f00 #f00  ;_border-color: #f00 white white white ;position:absolute;left:0;bottom:0;overflow:hidden;}
+    </style>
 </head>
+
 <body>
+<div style="position: absolute">
+    <div class="red_box"> <span class="box_cor corred"></span></div>
 
-<nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#example-navbar-collapse">
-            <span class="sr-only">切换导航</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">W3Cschool</a>
-    </div>
-    <div class="collapse navbar-collapse" id="example-navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">iOS</a></li>
-            <li><a href="#">SVN</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Java <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">jmeter</a></li>
-                    <li><a href="#">EJB</a></li>
-                    <li><a href="#">Jasper Report</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">分离的链接</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">另一个分离的链接</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+    <div class="org_box"> <span class="box_cor cor"></span>右下有颜色值</div>
 
+</div>
+<!--
+
+<div class="org_box"> <span class="org_box_cor cor1"></span>上边框有颜色,所以箭头冲下,定位的负值是边框宽度的2倍，宽度只有一个值，是等边三角形.要专门给IE6写HACK，将对应的transparent改为white.（以下省略这句描述）。 </div>
+<div class="org_box"> <span class="org_box_cor cor2"></span>右边框有颜色值,所以箭头冲左 </div>
+<div class="org_box"> <span class="org_box_cor cor3"></span>下边框有颜色,所以箭头冲上</div>
+<div class="org_box"> <span class="org_box_cor cor4"></span>左边框有颜色,所以箭头冲右 </div>
+
+<div class="org_box"> <span class="org_box_cor cor5"></span>上，右有颜色值，（宽度有两个值且不等，大家可以任意排列组合，图案很丰富） </div>
+<div class="org_box"> <span class="org_box_cor cor6"></span>上，下颜色值（颜色值不一样，有惊喜,沙漏？高脚杯）</div>
+<div class="org_box"> <span class="org_box_cor cor7"></span>右下有颜色值</div>
+<p style="color:#f00;">三个颜色值，有时也能用上,同样，改变颜色值顺序，开口方向不同。</p>
+<div class="box1"><em class="corner"></em>地方了宋德福</div>
+
+-->
 
 </body>
 </html>
