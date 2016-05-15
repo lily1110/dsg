@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>纯CSS制作的对话框特效代码</title>
+    <script src="../assets/public/jquery-2.2.3.min.js"></script>
+
+    <style>
+        .wrap {
+            width:100px;
+            height: 100px;
+            background-color: #3c763d;
+            margin-top: -10px;
+        }
+        .subwrap {
+            width:50px;
+            height: 50px;
+            background-color: red;
+            margin-top: -10px;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .other {
+            position: absolute;
+            width:200px;
+            height:200px;
+
+            background-color: yellow;
+        }
+        .bg {
+            position: absolute;
+            width:200px;
+            height:200px;
+
+            background-color: red;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="subwrap"> </div>
+</div>
+
+<div class="other">
+    <div id="sub" class="wrap">
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".wrap").mousemove(function() {
+//            $(".wrap").html("move");
+            if($("#sub").hasClass("hide")) {
+                $("#sub").removeClass("hide");
+                $("#sub").addClass("show");
+            }
+        });
+        $(".wrap").mouseout(function() {
+//            $(".wrap").html("over");
+            if($("#sub").hasClass("show")) {
+                $("#sub").removeClass("show");
+                $("#sub").addClass("hide");
+            }
+        });
+        $("#sub").addClass("hide")
+
+        $(".subwrap").mouseout(function() {
+            $("#sub").html("subwrap mouse out");
+        });
+    });
+</script>
+</html>

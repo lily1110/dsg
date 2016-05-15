@@ -14,7 +14,9 @@
   $ = jQuery;
 
   $.fn.flexNav = function(options) {
-    var $nav, $top_nav_items, breakpoint, count, nav_percent, nav_width, resetMenu, resizer, settings, showMenu, toggle_selector, touch_selector;
+    var $nav, $top_nav_items, breakpoint, count, nav_percent, nav_width,
+        resetMenu, resizer, settings, showMenu,
+        toggle_selector, touch_selector;
     settings = $.extend({
       'animationSpeed': 250,
       'transitionOpacity': true,
@@ -22,7 +24,7 @@
       'hoverIntent': false,
       'hoverIntentTimeout': 150,
       'calcItemWidths': false,
-      'hover': true
+      'hover': false
     }, options);
     $nav = $(this);
     $nav.addClass('with-js');

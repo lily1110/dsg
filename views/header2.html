@@ -2,20 +2,183 @@
 <html lang="zh-CN">
 <header>
   <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<script src="../assets/public/jquery-2.2.3.min.js"></script>
-<script src="../assets/public/bootstrap/js/bootstrap.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="../assets/public/jquery-2.2.3.min.js"></script>
+  <script src="../assets/public/bootstrap/js/bootstrap.js"></script>
+  <link href="../assets/public/flexnav/css/flexnav.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="../assets/public/bootstrap/css/bootstrap.css" />
+  <script src="../assets/js/header_menus.js"></script>
+
   <style type="text/css">
+    *{
+      margin:0px;
+      padding:0px;
+      -webkit-font-smoothing: antialiased;
+    }
+    html{
+      height:100%;
+      -webkit-text-size-adjust:none;
+      outline: 0;
+    }
+    body{
+      height:100%;
+      color:#666;
+      font-family:'simhei','Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+    }
+    ul,li{
+      list-style-type:none;
+    }
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+  <style type="text/css">
+
+    .whole_menu {}
+    .nav-bar {
+      height: 0.625rem;
+      z-index: 999;
+      background: -webkit-linear-gradient(left, #000000 , #333333); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #000000, #333333); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #000000, #333333); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #000000 , #333333); /* 标准的语法 */
+      /*-moz-box-shadow: 0px 0px 100px 50px ; !* 老的 Firefox *!*/
+    }
+    .nav-bar-menu {
+      line-height: 0.625rem;
+      color: whitesmoke;
+    }
+    .nav-bar_shadow {
+      position: absolute;
+      width: 100%;
+      top:0px;
+      height: 1px;
+      z-index: 999;
+      background: -webkit-linear-gradient(left, #000000 , #333333); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #000000, #333333); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #000000, #333333); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #000000 , #333333); /* 标准的语法 */
+      -moz-box-shadow: 0px 0px 100px 50px ; /* 老的 Firefox */
+      /*box-shadow: 0px 0px 100px 50px;*/
+    }
+    .submenus {
+      position: absolute;
+      left: 0rem;
+      top: 0.125rem;
+      width:100%;
+    }
+    .submenus a {
+      color: white;
+      font-size: 0.075rem;
+      text-decoration: none;
+      -webkit-transform: scale(0.75);
+      -o-transform: scale(0.75);
+      -moz-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+      transform: scale(0.75);
+    }
+    .menu_content {
+      position: absolute;
+      top: 0.125rem;
+      width:100%;
+    }
+    .submenu {
+      /*margin-left: -15px;*/
+      line-height: 20px;
+      width:100%;
+      padding-left: 0.025rem;
+      margin-top: 0.01875rem;
+      color: white;
+
+      z-index: 999;
+      background: -webkit-linear-gradient(left, #391211, #931a1d); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #391211, #931a1d); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #391211, #931a1d); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #391211,  #931a1d); /* 标准的语法 */
+    }
+    .submenu_more {
+    }
+    .submenu_more:after
+    {
+      content:">";
+      position: absolute;
+      right: 0.0625rem;
+
+      /*background-color:yellow;*/
+      color:white;
+      font-weight:bold;
+    }
+    .main_menus {
+      position: absolute;
+      width: 100%;
+      height:300px;
+      top: 100px;
+    }
+    .main_menus_background {
+      position: absolute;
+      width: 100%;
+      height:1.875rem;
+      top: 0.6rem;
+    }
+    .submenus_background {
+      position:relative;
+      opacity: 0.5;
+      height:1.5625rem;
+
+      border: 1px solid #b62626;
+      background:#4f4f4f;
+      background: -webkit-linear-gradient( #4f4f4f , #989898); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient( #4f4f4f, #989898); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient( #4f4f4f, #989898); /* Firefox 3.6 - 15 */
+      background: linear-gradient( #4f4f4f , #989898); /* 标准的语法 */
+    }
+
+    .sub3style {
+      color: white;
+      font-weight: bold;
+      font-size: 0.08125rem;
+
+    }
+    .sub4style{
+      color:white;
+      font-size: 0.075rem;
+
+    }
+    .menu_brief {
+      color: white;
+      /*font-size: 0.06875rem;*/
+      -webkit-transform: scale(0.75);
+      -o-transform: scale(0.75);
+      -moz-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+      transform: scale(0.75);
+    }
+    .logo-wrap {
+      line-height: 0.625rem;
+    }
     .nav-bar-logo {
-      width: 200px;
       display: inline-block;
+      float: right;
+      width: 1.25rem;
       padding-left: 0px;
+      vertical-align: middle;
     }
     .nav-bar-logo img {
-      height: 30px;
+      height: 20px;
+      margin-left: -15px;
+
     }
-    @media (min-width: 768px) {
+    .nav-bar-logo div {
+      width: 30px;
+      height: 30px;
+      margin-top: -30px;
+      margin-left: -15px;
+      opacity: 0;
+    }
+    @media (max-width: 992px) {
       .nav-bar-logo {
         width: 100%;
         text-align: center;
@@ -25,79 +188,217 @@
         display: inline-block;
         margin-left: 0px;
       }
+
+      .nav-bar-logo div {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: -30px;
+        margin-left: -15px;
+        opacity: 0;
+      }
     }
-    .navbar-custom {
-      height: 60px;
-      background-color:#333;
-    }
+
     .shopping-car {
       height: 30px;
     }
     .navbar-ul {
       border-color:#FFffff;
     }
-    .nav-bar-menu {
+
+    .nav-bar-menu li ul {
+      margin-top: 30px;
+      padding-left: 0px;
+      width: auto;
+    }
+    .nav-bar-menu li ul li {
+      /*margin-left: -100px;*/
+      line-height: 30px;
+      width:200px;
+      padding-left: 10px;
+      margin-top: 5px;
+
+      z-index: 999;
+      background: -webkit-linear-gradient(left, red, black); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, red, black); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, red, black); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, red, black); /* 标准的语法 */
+    }
+
+    .cart_count_wrap {
+      line-height: 0.625rem;
+    }
+    .cart_count {
+      position: absolute;
+      top: 0.3575rem;
+      left: 0.13rem;
 
     }
+    .cart_count div {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      background: white;
+      border:0.0125rem solid black;
+      border-radius: 50px;
+      font-size: 0.015rem;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      color: black;
+    }
+
+    .navbar-submenu-background {
+      position: absolute;
+      top: 100px;
+      background-color: #2b2b2b;
+      z-index: 888;
+      width:100%;
+    }
+    .navbar-sub-design {
+      position: relative;
+
+      /*margin-left: -100px;*/
+    }
+    .navbar-sub-design li{
+      width: 100%;
+    }
+    .header-img {
+      width: 100%;
+    }
+    .header-search-shadow {
+      margin-top: -1px;
+      height: 100px;
+      background: -webkit-linear-gradient(left, #000000 , #333333); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #000000, #333333); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #000000, #333333); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #000000 , #333333); /* 标准的语法 */
+    }
+    .header-search-input {
+      margin-top: 20px;
+      width: 100%;
+      height: 80px;
+    }
+    .header-search-input input {
+
+      padding-left: 15px;
+      padding-right: 50px;
+      color: #ffffff;
+      border: 0px;
+      background: black;
+      height: 60px;
+      width: 100%;
+    }
+    .header-search-icon {
+      position: absolute;
+      top: 38px;
+      right: 25px;
+      color: #c0c0c0;
+      font-size: 22PX;
+    }
+
+
+
+    .grey_box{
+      /*top: -341px;*/
+      opacity: 0.5;
+
+      width:100%; height:300px;
+      border: 1px solid #b62626;
+      padding-left:2em; background:#4f4f4f;font-size:12px; position:relative;
+      background: -webkit-linear-gradient( #4f4f4f , #989898); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient( #4f4f4f, #989898); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient( #4f4f4f, #989898); /* Firefox 3.6 - 15 */
+      background: linear-gradient( #4f4f4f , #989898); /* 标准的语法 */
+    }
+    .red_box{width:100%; height:302px; line-height:40px; margin:40px auto;
+      padding-left:2em; background:red;font-size:12px; position:relative;
+      background: -webkit-linear-gradient( #b62626 , #241f20); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient( #b62626, #241f20); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient( #b62626, #241f20); /* Firefox 3.6 - 15 */
+      background: linear-gradient( #b62626 , #241f20); /* 标准的语法 */
+    }
+    .box_cor{ width:0; height:0; font-size:0;border-style:solid;overflow:hidden; position:absolute; }
+    .cor_grey{border-width:8px 8px;border-color:transparent transparent #4f4f4f #4f4f4f ;left:10px; top:-16px;}
+    .cor_red{border-width:8px 8px;border-color:transparent transparent red red ;left:10px; top:-16px;}
+
   </style>
 </header>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top navbar-custom">
-  <div class="container">
-    <div class="row">
-      <div class="navbar-header col-xs-12 col-sm-12 col-md-3">
-        <!--  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>-->
-        <div>
-          <a class="navbar-brand navbar-toggle nav-bar-logo"  data-toggle="collapse" data-target=".navbar-collapse">
-            <img src="http://7xtsva.com1.z0.glb.clouddn.com/logo.png" />
-          </a>
-        </div>
-      </div>
-
-      <div class="navbar-collapse collapse  col-xs-12 col-sm-12 col-md-9" role="navigation">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-7">
-            <ul class="nav navbar-nav row">
-              <li class="col-xs-12 col-sm-12 col-md-4 dropdown">
-                  <a class="dropdown-toggle" type="button" id="dropdownMenu1" aria-expanded="true"  data-toggle="dropdown">
-                    Design
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>
-                      <a class="dropdown-toggle" type="button"
-                         id="dropdownMenu2" aria-expanded="true"  data-toggle="dropdown">Starting Design</a>
-                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                         <li><a href="#">sub1</a></li>
-                         <li><a href="#">sub2</a></li>
-                         <li><a href="#">sub3</a></li>
-                       </ul>
-                    </li>
-
-                    <li><a href="#">My Lab</a></li>
-                    <li><a href="#">Materials</a></li>
-                  </ul>
-              </li>
-              <li class="col-xs-12 col-sm-12 col-md-4"><a>Shop</a></li>
-              <li class="col-xs-12 col-sm-12 col-md-4"><a>Community</a></li>
-            </ul>
+  <div class=" nav-bar whole_menu">
+    <div class="container">
+      <div class="row logo-wrap">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <div>
+            <a  class="nav-bar-logo">
+              <img src="http://7xtsva.com2.z0.glb.clouddn.com/DSGNABLE_Logo.png" />
+              <div class="menu-button"></div>
+            </a>
           </div>
-          <div  class="col-xs-12 col-sm-12 col-md-5">
-            <ul class="nav navbar-nav row">
-              <li class="col-xs-12 col-sm-12 col-md-4"><a><img class="shopping-car" src="http://7xtsva.com1.z0.glb.clouddn.com/shopping-car.jpg"/></a></li>
-              <li class="col-xs-12 col-sm-12 col-md-4"><a>Login</a></li>
-              <li class="col-xs-12 col-sm-12 col-md-4"><a>Sign up</a></li>
-            </ul>
+        </div>
+            <div class="col-md-6">
+              <div class="row nav-bar-menu">
+                <div id="nav-bar"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row nav-bar-menu">
+                <li class="col-xs-12 col-sm-12 col-md-4">
+                  <div class="cart_count_wrap">
+                    <img class="shopping-car" src="http://7xtsva.com1.z0.glb.clouddn.com/cart.png"/>
+                    <div class="cart_count">
+                    <div>1</div>
+                  </div>
+                  </div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-4">Login</li>
+                <li class="col-xs-12 col-sm-12 col-md-4">Sign up</li>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div> <img  class="header-img" src="http://7xtsva.com1.z0.glb.clouddn.com/main.png"/>
+    <div class="nav-bar_shadow"></div>
+  </div>
+    <div class="main_menus_background">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 submenus_background whole_menu">
           </div>
         </div>
       </div>
     </div>
+    <div class="main_menus whole_menu">
+      <div class="container">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="row">
+          <div class="col-md-3">
+            <div id="submenu" class="submenus"></div>
+          </div>
+          <div class="col-md-9">
+            <div id="content" class="menu_content"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="header-search-shadow" >
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="header-search-input">
+            <input type="text" placeholder="Search"/>
+            <i class="glyphicon glyphicon-search header-search-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+
 </body>
 
 <script src="../assets/public/jquery-2.2.3.min.js"></script>
@@ -105,11 +406,47 @@
 </script>
 <script src="../assets/public/flexnav/js/jquery.flexnav.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-
   jQuery(document).ready(function($) {
-    $(".flexnav").flexNav();
+    $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
+    $(".main_menus_background").addClass("hide");
+    $(".whole_menu").mouseout(function() {
+      if($("#content").hasClass("show")) {
+        $("#content").removeClass("show");
+
+      }
+      if($("#submenu").hasClass("show")) {
+        $("#submenu").removeClass("show");
+
+      }
+      if($(".main_menus_background").hasClass("show")) {
+        $(".main_menus_background").removeClass("show");
+      }
+      $("#content").addClass("hide");
+      $("#submenu").addClass("hide");
+      $(".main_menus_background").addClass("hide");
+    });
   });
 
+
+</script>
+<script type="text/javascript">
+  (function (doc, win) {
+    var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              if (clientWidth >= 640) {
+                docEl.style.fontSize = '160px';
+              } else {
+                docEl.style.fontSize = 160 * (clientWidth / 640) + 'px';
+              }
+            };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  
 </script>
 </html>
