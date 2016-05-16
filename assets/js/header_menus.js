@@ -6,6 +6,7 @@ function Content(first,second,third,style) {
     this.second = second;
     this.third = third;
     this.style = style;
+
 }
 Content.prototype.getComponent= function() {
     return ("<h2 class='"+this.style+"'  align='center'>"+(this.first?this.first:"")+"</h2>" +
@@ -27,14 +28,28 @@ function Menu(instance,name,style,subMenus) {
     this.name = name;
     this.style = style;
     this.subMenus = subMenus;
+
 }
 Menu.prototype.getComponent = function() {
-    return ("<div onmousemove='"+this.instance+".onActive()' onclick='"+this.instance+".onActive()' " +
-    " class='"+this.style+"'>"+this.name+"</div>");
+        return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' onmouseout='"+this.instance+".onLeave()' onclick='"+this.instance+".onActive()' " +
+        " class='"+this.style+"'>"+this.name+
+        "</div>");
+    //if(this.isActive) {
+    //else {
+    //    return ("<div onclick='"+this.instance+".onActive()' " +
+    //    " class='"+this.style+"'>"+this.name+"</div>");
+    //}
+    //    return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' "+
+    //    " onclick='"+this.instance+".onActive()' " +
+    //    " onmouseover='"+this.instance+".onLeave()"+"'"+
+    //    " class='"+this.style+"'>"+this.name+
+    //    "<div class='triangle_body'><div class='out'><div class='in'></div></div></div>"+
+    //    "</div>");
     //return ("<div onclick='"+this.instance+".onActive()' " +
     //" class='"+this.style+"'>"+this.name+"</div>");
 }
 Menu.prototype.onActive=function() {
+    //this.isActive= true;
     $("#menu_content").html("");
     $("#submenu").html("");
 
@@ -62,8 +77,34 @@ Menu.prototype.onActive=function() {
         this.subMenus[0].onActive();
     }
     $("#submenu").html(submenu_html);
+    //$("#submenus_background").children
+    switch (this.instance ) {
+        case "design":
+                $("#design_t").css("display","block");
+                $("#shop_t").css("display","none");
+                $("#community_t").css("display","none");
+                break;
+            case "shop" :
+                $("#design_t").css("display","none");
+                $("#shop_t").css("display","block");
+                $("#community_t").css("display","none");
+                break;
+            case  "community":
+                $("#design_t").css("display","none");
+                $("#shop_t").css("display","none");
+                $("#community_t").css("display","block");
+            break;
+        default:
+            break;
+    }
+    //$("#"+this.instance+" .triangle_body").css("display","block");
+}
+
+Menu.prototype.onLeave=function() {
+    $("#"+this.instance+" .triangle_body").css("display","none");
 
 }
+
 
 SubMenu.prototype.getComponent = function() {
     //if(this.subMenus) {
@@ -110,11 +151,18 @@ SubMenu.prototype.onActive=function() {
 function makeDiv(style,content) {
     return ("<div class='"+style+"'>"+content+"</div>")  ;
 }
-
-var design = new Menu("design","Design","col-md-4 nav_bar_menu");
-var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu");
-var community = new Menu("community", "Community", "col-md-4 nav_bar_menu");
-
+var design = new Menu("design","Design","col-md-4 nav_bar_menu",initNavBar,initNavBar);
+var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu",initNavBar,initNavBar);
+var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initNavBar,initNavBar);
+function initNavBar() {
+    $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
+}
+//
+//design.onActive = initNavBar();
+//shop.onActive = initNavBar();
+//community.onLeave = initNavBar();design.onActive = initNavBar();
+//shop.onLeave = initNavBar();
+//community.onLeave = initNavBar();
 var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu");
 var myLab = new SubMenu("myLab","My Lab","#","submenu");
 var materials = new SubMenu("materials","Materials","#","submenu submenu_more");
