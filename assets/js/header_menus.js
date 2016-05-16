@@ -34,22 +34,8 @@ Menu.prototype.getComponent = function() {
         return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' onmouseout='"+this.instance+".onLeave()' onclick='"+this.instance+".onActive()' " +
         " class='"+this.style+"'>"+this.name+
         "</div>");
-    //if(this.isActive) {
-    //else {
-    //    return ("<div onclick='"+this.instance+".onActive()' " +
-    //    " class='"+this.style+"'>"+this.name+"</div>");
-    //}
-    //    return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' "+
-    //    " onclick='"+this.instance+".onActive()' " +
-    //    " onmouseover='"+this.instance+".onLeave()"+"'"+
-    //    " class='"+this.style+"'>"+this.name+
-    //    "<div class='triangle_body'><div class='out'><div class='in'></div></div></div>"+
-    //    "</div>");
-    //return ("<div onclick='"+this.instance+".onActive()' " +
-    //" class='"+this.style+"'>"+this.name+"</div>");
 }
 Menu.prototype.onActive=function() {
-    //this.isActive= true;
     $("#menu_content").html("");
     $("#submenu").html("");
 
@@ -77,7 +63,6 @@ Menu.prototype.onActive=function() {
         this.subMenus[0].onActive();
     }
     $("#submenu").html(submenu_html);
-    //$("#submenus_background").children
     switch (this.instance ) {
         case "design":
                 $("#design_t").css("display","block");
@@ -97,7 +82,6 @@ Menu.prototype.onActive=function() {
         default:
             break;
     }
-    //$("#"+this.instance+" .triangle_body").css("display","block");
 }
 
 Menu.prototype.onLeave=function() {
@@ -107,14 +91,6 @@ Menu.prototype.onLeave=function() {
 
 
 SubMenu.prototype.getComponent = function() {
-    //if(this.subMenus) {
-    //    return ("<div  onclick='"+this.instance+".onActive()' " +
-    //    " class='"+this.style+"'> "+this.name+"</div>");
-    //}
-    //else {
-    //    return ("<div  onclick='"+this.instance+".onActive()' " +
-    //    " class='"+this.style+"'> <a href='"+this.url+"'>"+this.name+"</a></div>");
-    //}
     if(this.subMenus) {
         return ("<div onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
         " class='"+this.style+"'> "+this.name+"</div>");
@@ -157,12 +133,6 @@ var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initN
 function initNavBar() {
     $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
 }
-//
-//design.onActive = initNavBar();
-//shop.onActive = initNavBar();
-//community.onLeave = initNavBar();design.onActive = initNavBar();
-//shop.onLeave = initNavBar();
-//community.onLeave = initNavBar();
 var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu");
 var myLab = new SubMenu("myLab","My Lab","#","submenu");
 var materials = new SubMenu("materials","Materials","#","submenu submenu_more");
