@@ -1,132 +1,7 @@
 /**
  * Created by lilili on 16/5/13.
  */
-function Content(first,second,third,style) {
-    this.first = first;
-    this.second = second;
-    this.third = third;
-    this.style = style;
 
-}
-Content.prototype.getComponent= function() {
-    return ("<h2 class='"+this.style+"'  align='center'>"+(this.first?this.first:"")+"</h2>" +
-            "<h6 class='"+this.style+"' align='center'>"+(this.second?this.second:"")+"</h6>" +
-            "<div class='"+this.style+"' align='center'>"+(this.third?this.third:"")+"</div>")
-}
-
-function SubMenu(instance,name,url,style,subMenus,content,init) {
-    this.instance = instance;
-    this.url = url;
-    this.name = name;
-    this.style = style;
-    this.subMenus = subMenus;
-    this.content = content;
-    this.init = init;
-}
-function Menu(instance,name,style,subMenus) {
-    this.instance = instance;
-    this.name = name;
-    this.style = style;
-    this.subMenus = subMenus;
-
-}
-Menu.prototype.getComponent = function() {
-        return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' onmouseout='"+this.instance+".onLeave()' onclick='"+this.instance+".onActive()' " +
-        " class='"+this.style+"'>"+this.name+
-        "</div>");
-}
-Menu.prototype.onActive=function() {
-    $("#menu_content").html("");
-    $("#submenu").html("");
-
-    if($("#menu_content").hasClass("hide")) {
-        $("#menu_content").removeClass("hide");
-    }if($("#submenu").hasClass("hide")) {
-        $("#submenu").removeClass("hide");
-    }
-    if($(".main_menus_background").hasClass("hide")) {
-        $(".main_menus_background").removeClass("hide");
-    }
-    $("#menu_content").addClass("show");
-    $("#submenu").addClass("show");
-    $(".main_menus_background").addClass("show");
-
-    var submenu_html = "";
-    if(!$.isArray(this.subMenus)){
-        return;
-    }
-    for (var i=0;i<this.subMenus.length;i++) {
-        submenu_html+= this.subMenus[i].getComponent();
-    }
-
-    if($.isFunction(this.subMenus[0].onActive))  {
-        this.subMenus[0].onActive();
-    }
-    $("#submenu").html(submenu_html);
-    switch (this.instance ) {
-        case "design":
-                $("#design_t").css("display","block");
-                $("#shop_t").css("display","none");
-                $("#community_t").css("display","none");
-                break;
-            case "shop" :
-                $("#design_t").css("display","none");
-                $("#shop_t").css("display","block");
-                $("#community_t").css("display","none");
-                break;
-            case  "community":
-                $("#design_t").css("display","none");
-                $("#shop_t").css("display","none");
-                $("#community_t").css("display","block");
-            break;
-        default:
-            break;
-    }
-}
-
-Menu.prototype.onLeave=function() {
-    $("#"+this.instance+" .triangle_body").css("display","none");
-
-}
-
-
-SubMenu.prototype.getComponent = function() {
-    if(this.subMenus) {
-        return ("<div onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
-        " class='"+this.style+"'> "+this.name+"</div>");
-    }
-    else {
-        return ("<div onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
-        " class='"+this.style+"'> <a href='"+this.url+"'>"+this.name+"</a></div>");
-    }
-}
-SubMenu.prototype.onActive=function() {
-    if(this.subMenus) {
-        var sub_html="";
-        for (var i =0;i<this.subMenus.length;i++) {
-            var item =  this.subMenus[i];
-            var item_main = makeDiv(this.subMenus[i].style,item.name);
-            var html = "<div class='col-md-4'>"+item_main;
-            if(item.subMenus)  {
-                for(var j=0;j<item.subMenus.length;j++) {
-                    var subItem = item.subMenus[j];
-                    html+=makeDiv(subItem.style,subItem.name);
-                }
-                html += "</div>";
-            }
-            sub_html +=html;
-        }
-        var submenus = makeDiv("row",sub_html);
-        $("#menu_content").html(submenus+"</div>");
-    }
-    else if (this.content){
-        $("#menu_content").html(this.content.getComponent());
-    }
-}
-
-function makeDiv(style,content) {
-    return ("<div class='"+style+"'>"+content+"</div>")  ;
-}
 var design = new Menu("design","Design","col-md-4 nav_bar_menu",initNavBar,initNavBar);
 var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu",initNavBar,initNavBar);
 var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initNavBar,initNavBar);
@@ -167,18 +42,21 @@ blog.content = new Content(
 );
 
 
-var startDesign_content = new Content("OPENID YOUR SHOP!",
+var startDesign_content = new Content("START DESIGN!",
+    "Create your own ideas",
+    "We'll provide you a quote!",
+    "menu_brief");
+startDesign.content = startDesign_content;
+startDesign.content.button = {"name":"Upload a 3D Model","url":"#","style":"menu_brief_button"}
+
+var myLab_content = new Content("OPEN YOUR SHOP!",
     "We'll help your masterpieces globally!\n"+
     "Create your personal showncase and start selling now!",
     "",
     "menu_brief");
-startDesign.content = startDesign_content;
-
-var myLab_content = new Content("START DESIGN!",
-    "Create your own ideas",
-    "We'll provide you a quote!",
-    "menu_brief");
 myLab.content = myLab_content;
+myLab.content.button = {"name":"Start","url":"#","style":"menu_brief_button"}
+
 
 var materials_metals = new SubMenu("materials_metals","Metals","#","sub3style");
 var materials_plastics = new SubMenu("materials_plastics","Plastics","#","sub3style");

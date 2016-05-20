@@ -1,0 +1,17 @@
+footer
+1920*525
+
+container 1500
+
+subbar_height 100px
+subbar layout
+	375px 375px 375px 375px
+
+	line-height 100px
+
+	subscribe button padding-left 20px
+
+
+main 329
+linear 1
+bottom 95
