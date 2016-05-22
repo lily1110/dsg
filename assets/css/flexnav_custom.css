@@ -93,3 +93,11 @@
     background: -moz-linear-gradient(right, #444444, #444444); /* Firefox 3.6 - 15 */
     background: linear-gradient(to right, #444444 , #444444); /* 标准的语法 */
 }
+.flexnav .touch-button .navicon {
+    position: relative;
+    top: 0.96em;
+    font-size: 15px;
+    color: white;
+    padding-right: 0.075rem;
+    float: right;
+}

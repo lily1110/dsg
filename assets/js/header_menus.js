@@ -5,12 +5,17 @@
 var design = new Menu("design","Design","col-md-4 nav_bar_menu",initNavBar,initNavBar);
 var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu",initNavBar,initNavBar);
 var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initNavBar,initNavBar);
+shop.getComponent = function() {
+    return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' onmouseout='"+this.instance+".onLeave()' onclick='"+this.instance+".onActive()' " +
+    " class='"+this.style+"' style='padding-left: 20px'>"+this.name+
+    "</div>");
+}
 function initNavBar() {
     $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
 }
 var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu");
 var myLab = new SubMenu("myLab","My Lab","#","submenu");
-var materials = new SubMenu("materials","Materials","#","submenu submenu_more");
+var materials = new SubMenu("materials","Materials","#","submenu");
 var subDesignMenus = new Array(startDesign, myLab, materials);
 design.subMenus = subDesignMenus;
 
@@ -22,10 +27,10 @@ categories.content = new Content("Discover our collections!",
     "menu_brief");
 
 
-var home = new SubMenu("home","Home","#","submenu submenu_more");
-var jewerly = new SubMenu("jewerly","Jewerly","#","submenu submenu_more");
-var art = new SubMenu("art","Art","#","submenu submenu_more");
-var accessories = new SubMenu("accessories","Accessories","#","submenu submenu_more");
+var home = new SubMenu("home","Home","#","submenu");
+var jewerly = new SubMenu("jewerly","Jewerly","#","submenu");
+var art = new SubMenu("art","Art","#","submenu");
+var accessories = new SubMenu("accessories","Accessories","#","submenu");
 var shop_submenus = new Array(categories, home, jewerly, art, accessories);
 shop.subMenus = shop_submenus;
 

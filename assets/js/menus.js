@@ -25,9 +25,6 @@ Content.prototype.getComponent= function() {
         +this.button.name+"</a></div>");
     }
     return text_html+button_html;
-    //return ("<div class='"+this.style+" menu_brief_title1'  align='center'>"+(this.first?this.first:"")+"</div>" +
-    //        "<div class='"+this.style+" menu_brief_title2' align='center'>"+(this.second?this.second:"")+"</div>" +
-    //        "<div class='"+this.style+" menu_brief_title3' align='center'>"+(this.third?this.third:"")+"</div>")
 }
 
 function SubMenu(instance,name,url,style,subMenus,content,init) {
@@ -84,8 +81,11 @@ Menu.prototype.onActive=function() {
 
     if($.isFunction(this.subMenus[0].onActive))  {
         this.subMenus[0].onActive();
+
     }
     $("#submenu").html(submenu_html);
+    $(".submenu").css("opacity","1");
+    $("#"+this.subMenus[0].instance).css("opacity",0.8);
     switch (this.instance ) {
         case "design":
             AddTriangle($("#design_t"));
@@ -115,15 +115,19 @@ Menu.prototype.onLeave=function() {
 
 SubMenu.prototype.getComponent = function() {
     if(this.subMenus) {
-        return ("<div onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
-        " class='"+this.style+"'> "+this.name+"<span class='icon-angle-right'></span></div>");
+        return ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
+        " class='"+this.style+"''> "+this.name+"<span class='submenu_more icon-angle-right'></span></div>");
     }
     else {
-        return ("<div onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
+        return ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()'  onclick='"+this.instance+".onActive()' " +
+        " onmouseout='"+this.instance+".onLeave()'"+
         " class='"+this.style+"'> <a href='"+this.url+"'>"+this.name+"</a></div>");
     }
 }
 SubMenu.prototype.onActive=function() {
+    $(".submenu").css("opacity","1");
+    $("#"+this.instance).css("opacity",0.8);
+    //$("")
     if(this.subMenus) {
         var sub_html="";
         for (var i =0;i<this.subMenus.length;i++) {
@@ -145,4 +149,8 @@ SubMenu.prototype.onActive=function() {
     else if (this.content){
         $("#menu_content").html(this.content.getComponent());
     }
+}
+SubMenu.prototype.onLeave=function() {
+    $(".sub3style").css("opacity","1");
+    $("#"+this.instance).css("opacity",0.8);
 }

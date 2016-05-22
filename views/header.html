@@ -6,7 +6,7 @@
     <script src="../assets/public/jquery-2.2.3.min.js"></script>
     <script src="../assets/public/bootstrap/js/bootstrap.js"></script>
     <link href="../assets/public/flexnav/css/flexnav.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <link href="../assets/public/flexnav/css/page.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!--<link href="../assets/public/flexnav/css/page.css" media="screen, projection" rel="stylesheet" type="text/css">-->
     <link href="../assets/public/flexnav/css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css">
 
     <link href="../assets/css/flexnav_custom.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -18,14 +18,16 @@
 </header>
 <body>
 
-<div class="nav-bar_background"></div>
+<div id="nav_bar_bg" class="nav-bar_background"></div>
+<div class="nav-bar_shadow">
+</div>
 <div class="visible-md visible-lg " style="position: absolute;top: 0;width: 100%;z-index:999">
 <div class="container">
     <div class="row">
         <div class="col-md-3 ">
             <a class="nav-bar-logo">
                     <img src="../assets/images/header/DSGNABLE_Logo.png" />
-                </a>
+            </a>
         </div>
         <div id="whole_menu" class="col-md-6">
             <div class="row">
@@ -42,15 +44,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border_split"></div>
+                        <div id="split_line" class="border_split"></div>
                     </div>
                     <div class="col-md-1" >
-                        <div  class="triangle_body"></div>
+                        <div  class="triangle_body"  style="width: 115%;"></div>
                     </div>
                     <div class="col-md-4">
-                        <div id="shop_t" class="triangle_body">
+                        <div id="shop_t" class="triangle_body" style="left:5px;">
                             <div class="out">
-                                <div class="in">
+                                <div class="in" style="border-color: transparent transparent #202020 #202020;">
                                 </div>
                             </div>
                         </div>
@@ -58,7 +60,7 @@
                     <div class="col-md-4" height="100%">
                         <div id="community_t" class="triangle_body">
                             <div class="out">
-                                <div class="in">
+                                <div class="in" style="border-color: transparent transparent #171512 #171512;">
                                 </div>
                             </div>
                         </div>
@@ -82,7 +84,7 @@
         <div class="col-md-3 user_operation">
             <div class="row">
                 <ul>
-                    <li class="col-xs-12 col-sm-12 col-md-3">
+                    <li class="col-xs-12 col-sm-12 col-md-4">
                         <div class="cart_count_wrap">
                             <img class="shopping-car" src="http://7xtsva.com1.z0.glb.clouddn.com/cart.png"/>
                             <div class="cart_count">
@@ -90,8 +92,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="col-xs-12 col-sm-12 col-md-3">Login</li>
-                    <li class="col-xs-12 col-sm-12 col-md-6">Sign up</li>
+                    <li class="col-xs-12 col-sm-12 col-md-4">Login</li>
+                    <li class="col-xs-12 col-sm-12 col-md-4">Sign up</li>
                 </ul>
             </div>
         </div>
@@ -200,7 +202,9 @@
                 </ul>
             </li>
             <li>
-                <a href="/">Shopping Cart</a>
+                <a  href="/">Shopping Cart
+                    <p class="shopping-cart-count">1</p></a>
+
             </li>
             <li>
                 <a href="/">Login</a>
@@ -212,8 +216,16 @@
     </nav>
 
 </div>
-<div> <img  class="header-img" src="../assets/images/header/main.png"/>
-    <div class="nav-bar_shadow"></div>
+<div id="header_main_img">
+
+    <img  class="header-img" src="../assets/images/header/main.png"/>
+
+    <div id="header_main_img_every" style="">
+        <P class="every">EVERYTHING IS DESIGNABLE</P>
+        <P class="customize">Customize your life</P>
+
+    </div>
+
 </div>
 <div class="header-search-shadow" >
     <div class="container">
@@ -237,11 +249,24 @@
 <script src="../assets/js/menus.js"></script>
 <script src="../assets/js/header_menus.js"></script>
 <script type="text/javascript">
+    function resizeSubmenusBg() {
+        if($(window).width()< 1600) {
+            $(".submenus_background").css("height","1.5625rem").css("display","block");
+            $("#split_line").css("height","1.5625rem");
+        }
+        else {
+            $(".submenus_background").css("height","1.875rem").css("display","block");
+            $("#split_line").css("height","1.875rem");
+        }
+    }
+    function setEveryTop() {
+        var every_top = ($("#header_main_img").height()*0.5/160)+"rem";
+        $("#header_main_img_every").css("top",every_top);
+    }
+
     jQuery(document).ready(function($) {
         $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
-
         $(".submenus_background").css("height","0px").css("display","none");
-
         $("#whole_menu").mouseout(function() {
             if($("#menu_content").hasClass("show")) {
                 $("#menu_content").removeClass("show");
@@ -264,17 +289,19 @@
                 $("#submenu").removeClass("hide");
 
             }
-
             $("#menu_content").addClass("show");
             $("#submenu").addClass("show");
             if($("#submenu").children().length>0) {
-                $(".submenus_background").css("height","1.5625rem").css("display","block");
+                resizeSubmenusBg();
             }
 
         });
 
         $(".flexnav").flexNav();
-
+        setEveryTop();
+        $(window).resize(function() {
+            setEveryTop();
+        });
     });
 
 
