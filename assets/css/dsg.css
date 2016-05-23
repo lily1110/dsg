@@ -127,11 +127,15 @@ ul,li{
     color: white;
     font-size: 0.09375rem;
     z-index: 999;
+}
+.submenu_normal {
     background: -webkit-linear-gradient(left, #391211, #931a1d); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(right, #391211, #931a1d); /* Opera 11.1 - 12.0 */
     background: -moz-linear-gradient(right, #391211, #931a1d); /* Firefox 3.6 - 15 */
     background: linear-gradient(to right, #391211,  #931a1d); /* 标准的语法 */
-
+}
+.submenu_active {
+    background:#931a1d;
 }
 
 .submenu a {
@@ -259,10 +263,12 @@ ul,li{
     width: 1.25rem;
     height: 0.15625rem;
     line-height: 0.125rem;
-    border: 1px solid white;
-    border-radius: 1px;
+    border: 1px solid rgba(265,265,265,0.5);
+    border-radius: 2px;
     text-align: center;
     text-decoration: none!important;
+    font-size: 15px;
+    /*font-family: 'SegoeWP';*/
 }
 a.menu_brief_button:hover,a.menu_brief_button:focus{
     color:#fff;
@@ -274,16 +280,16 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
 }
 .menu_brief_title2 {
     margin-top: 10px;
-    font-size: 0.109375rem;
+    font-size: 0.09375rem;
 }
 .menu_brief_title3 {
     margin-top: 10px;
-    font-size: 0.0625rem;
-    -webkit-transform: scale(0.75);
-    -o-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    -ms-transform: scale(0.75);
-    transform: scale(0.75);
+    font-size: 0.09375rem;
+    /*-webkit-transform: scale(0.75);*/
+    /*-o-transform: scale(0.75);*/
+    /*-moz-transform: scale(0.75);*/
+    /*-ms-transform: scale(0.75);*/
+    /*transform: scale(0.75);*/
 }
 .user_operation {
     line-height:0.625rem;
@@ -299,10 +305,10 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
         font-size: 0.15625rem;
     }
     .menu_brief_title2 {
-        font-size: 0.075rem;
+        /*font-size: 0.075rem;*/
     }
     .menu_brief_title3 {
-        font-size: 0.0625rem;
+        /*font-size: 0.125rem;*/
     }
     .menu_brief_button {
         font-size: 0.075rem;
@@ -452,6 +458,7 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
     background: linear-gradient(to right, #000000 , #333333); /* 标准的语法 */
 }
 .header-search-input {
+    position: relative;
     margin-top: 0.125rem;
     width: 100%;
     height: 0.5rem;
@@ -475,9 +482,10 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
 }
 .header-search-icon {
     position: absolute;
+    top: 0px;
     right: 25px;
     color: #c0c0c0;
-    line-height: 0.625rem;
+    line-height: 0.375rem;
     font-size: 0.1375rem;
 }
 
@@ -588,6 +596,18 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
     color: white;
 
 }
+ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: white;
+}
+ input:-moz-placeholder, textarea:-moz-placeholder {
+    color:white;
+}
+ input::-moz-placeholder, textarea::-moz-placeholder {
+    color:white;
+}
+ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color:white;
+}
 .footer_bg {
     width: 100%;
     height: 2.8125rem;
@@ -604,10 +624,14 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
     color: white;
 }
 .footer_menus_logo {
+    padding-left: 0px;
 }
 .footer_menus_logo img {
     width:200px;
     height: auto;
+}
+.footer_menus_col {
+    float: right;
 }
 .footer_menus_menus {
 }
@@ -630,8 +654,11 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
 }
 #footer_follow {
     /*text-align: ;*/
-    padding-left: 20px;
+
+    /*padding-left: 20px;*/
+    float: right;
 }
+
 
 .footer_bottom {
     height: 0.5rem;
@@ -824,7 +851,7 @@ a.menu_brief_button:hover,a.menu_brief_button:focus{
     }
     .subbar_text {
         width: 100%;
-        font-size: 0.09375rem;
+        font-size: 0.125rem;
         color: white;
     }
     .footer_bottom_line {

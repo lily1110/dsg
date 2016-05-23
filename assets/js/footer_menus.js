@@ -45,7 +45,7 @@ function getFooterMenuHtml(menufirst) {
             footer_first_html+= makeDiv(item.style,item.name);
         }
     }
-    return makeDiv("col-md-3",footer_first_html);
+    return makeDiv("col-md-3",makeDiv("footer_menus_col",footer_first_html));
 
 }
 function getFooterFollowHtml(menufirst) {

@@ -1,42 +1,42 @@
 /**
  * Created by lilili on 16/5/13.
  */
-
-var design = new Menu("design","Design","col-md-4 nav_bar_menu",initNavBar,initNavBar);
-var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu",initNavBar,initNavBar);
-var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initNavBar,initNavBar);
+function initNavBar() {
+    $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
+}
+var design = new Menu("design","Design","col-md-4 nav_bar_menu",initNavBar);
+var shop = new Menu("shop","Shop","col-md-4 nav_bar_menu",initNavBar);
+var community = new Menu("community", "Community", "col-md-4 nav_bar_menu",initNavBar);
 shop.getComponent = function() {
     return  ("<div id='"+this.instance+"' onmousemove='"+this.instance+".onActive()' onmouseout='"+this.instance+".onLeave()' onclick='"+this.instance+".onActive()' " +
     " class='"+this.style+"' style='padding-left: 20px'>"+this.name+
     "</div>");
 }
-function initNavBar() {
-    $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
-}
-var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu");
-var myLab = new SubMenu("myLab","My Lab","#","submenu");
-var materials = new SubMenu("materials","Materials","#","submenu");
+
+var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu submenu_normal");
+var myLab = new SubMenu("myLab","My Lab","#","submenu submenu_normal");
+var materials = new SubMenu("materials","Materials","#","submenu submenu_normal");
 var subDesignMenus = new Array(startDesign, myLab, materials);
 design.subMenus = subDesignMenus;
 
 
-var categories = new SubMenu("categories","Shop all categories","#","submenu");
-categories.content = new Content("Discover our collections!",
+var categories = new SubMenu("categories","Shop all categories","#","submenu submenu_normal");
+categories.content = new Content("DISCOVER OUR COLLECTIONS!",
     "Find out your style",
     "What you need,just different,just unique!",
     "menu_brief");
 
 
-var home = new SubMenu("home","Home","#","submenu");
-var jewerly = new SubMenu("jewerly","Jewerly","#","submenu");
-var art = new SubMenu("art","Art","#","submenu");
-var accessories = new SubMenu("accessories","Accessories","#","submenu");
+var home = new SubMenu("home","Home","#","submenu submenu_normal");
+var jewerly = new SubMenu("jewerly","Jewerly","#","submenu submenu_normal");
+var art = new SubMenu("art","Art","#","submenu submenu_normal");
+var accessories = new SubMenu("accessories","Accessories","#","submenu submenu_normal");
 var shop_submenus = new Array(categories, home, jewerly, art, accessories);
 shop.subMenus = shop_submenus;
 
-var blog = new SubMenu("blog","Blog","#","submenu");
-var events = new SubMenu("events","Events","#","submenu");
-var jobs = new SubMenu("jobs","Jobs for Designers","#","submenu");
+var blog = new SubMenu("blog","Blog","#","submenu submenu_normal");
+var events = new SubMenu("events","Events","#","submenu submenu_normal");
+var jobs = new SubMenu("jobs","Jobs for Designers","#","submenu submenu_normal");
 var community_subMenus = new Array(blog,events,jobs);
 community.subMenus=community_subMenus;
 blog.content = new Content(
@@ -55,7 +55,7 @@ startDesign.content = startDesign_content;
 startDesign.content.button = {"name":"Upload a 3D Model","url":"#","style":"menu_brief_button"}
 
 var myLab_content = new Content("OPEN YOUR SHOP!",
-    "We'll help your masterpieces globally!\n"+
+    "We'll help your masterpieces globally!<br/>"+
     "Create your personal showncase and start selling now!",
     "",
     "menu_brief");

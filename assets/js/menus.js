@@ -85,7 +85,7 @@ Menu.prototype.onActive=function() {
     }
     $("#submenu").html(submenu_html);
     $(".submenu").css("opacity","1");
-    $("#"+this.subMenus[0].instance).css("opacity",0.8);
+    //$("#"+this.subMenus[0].instance).css("background","#931a1d");
     switch (this.instance ) {
         case "design":
             AddTriangle($("#design_t"));
@@ -125,10 +125,13 @@ SubMenu.prototype.getComponent = function() {
     }
 }
 SubMenu.prototype.onActive=function() {
-    $(".submenu").css("opacity","1");
-    $("#"+this.instance).css("opacity",0.8);
-    //$("")
+    $(".submenu_active").removeClass("submenu_active");
     if(this.subMenus) {
+        //if($("#"+this.instance).hasClass("submenu_normal")) {
+        //    $("#"+this.instance).removeClass("submenu_normal");
+        //}
+        $("#"+this.instance).addClass("submenu_active");
+
         var sub_html="";
         for (var i =0;i<this.subMenus.length;i++) {
             var item =  this.subMenus[i];
@@ -151,6 +154,9 @@ SubMenu.prototype.onActive=function() {
     }
 }
 SubMenu.prototype.onLeave=function() {
-    $(".sub3style").css("opacity","1");
-    $("#"+this.instance).css("opacity",0.8);
+    //if($("#"+this.instance).hasClass("submenu_active")) {
+    //    $("#"+this.instance).removeClass("submenu_active");
+    //}
+    //$("#"+this.instance).addClass("submenu_normal");
+
 }
