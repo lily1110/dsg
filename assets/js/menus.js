@@ -11,8 +11,15 @@ function Content(first,second,third,style) {
 
 }
 Content.prototype.getComponent= function() {
+    var first_html ="";
+    if( this.first.length>20 ) {
+        first_html+="<div class='"+this.style+" menu_brief_title1_long' >"+(this.first?this.first:"")+"</div>"
+    }
+    else {
+        first_html+= "<div class='"+this.style+" menu_brief_title1' >"+(this.first?this.first:"")+"</div>"
+    }
     var text_html =
-        ("<div class='"+this.style+" menu_brief_title1' >"+(this.first?this.first:"")+"</div>" +
+        (   first_html+
             "<div class='"+this.style+" menu_brief_title2' >"+(this.second?this.second:"")+"</div>" +
             "<div class='"+this.style+" menu_brief_title3' >"+(this.third?this.third:"")+"</div>"
         );

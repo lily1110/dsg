@@ -23,7 +23,7 @@ design.subMenus = subDesignMenus;
 var categories = new SubMenu("categories","Shop all categories","#","submenu submenu_normal");
 categories.content = new Content("DISCOVER OUR COLLECTIONS!",
     "Find out your style",
-    "What you need,just different,just unique!",
+    "What you need, just different, just unique!",
     "menu_brief");
 
 
@@ -55,9 +55,9 @@ startDesign.content = startDesign_content;
 startDesign.content.button = {"name":"Upload a 3D Model","url":"#","style":"menu_brief_button"}
 
 var myLab_content = new Content("OPEN YOUR SHOP!",
-    "We'll help your masterpieces globally!<br/>"+
-    "Create your personal showncase and start selling now!",
+    "We'll help your masterpieces globally!"+
     "",
+    "Create your personal showcase and start selling now!",
     "menu_brief");
 myLab.content = myLab_content;
 myLab.content.button = {"name":"Start","url":"#","style":"menu_brief_button"}
