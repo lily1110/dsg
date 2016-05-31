@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>register success</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--[if lt IE 8]>
+    <script>alert("您的浏览器版本太低了，本站对IE8以下版本浏览器无法提供支持，为保证更好的浏览体验，请升级您的IE或下载其它浏览器。推荐Chrome, Firefox, 360浏览器等!");window.close();
+    </script>
+    <![endif]-->
+    <!--[if lt IE9]>
+    <script src="../../assets/public/html5shiv.js"></script>
+    <script src="../../assets/public/respond.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../assets/public/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login.css" />
+    <script src="../../assets/public/jquery-2.2.3.min.js"></script>
+    <script src="../../assets/public/bootstrap/js/bootstrap.js"></script>
+
+<body>
+<section class="login-megModel meg-model">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-11 col-sm-offset-1 col-md-10 col-md-offset-2">
+                <div class="meg-prompt-wrapper">
+                    <div class="meg-prompt">
+                        <div class="first">Success!</div>
+                        <div class="second">Your registration has been completed , enjoy Dsgnable!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '160px';
+                    } else {
+                        //docEl.style.fontSize = 16 * (clientWidth / 640) + 'px';
+                        docEl.style.fontSize = 160 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+</html>

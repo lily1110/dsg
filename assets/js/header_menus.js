@@ -13,30 +13,30 @@ shop.getComponent = function() {
     "</div>");
 }
 
-var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu submenu_normal");
-var myLab = new SubMenu("myLab","My Lab","#","submenu submenu_normal");
-var materials = new SubMenu("materials","Materials","#","submenu submenu_normal");
+var startDesign = new SubMenu("startDesign","Starting Design","www.baidu.com","submenu");
+var myLab = new SubMenu("myLab","My Lab","#","submenu");
+var materials = new SubMenu("materials","Materials","#","submenu");
 var subDesignMenus = new Array(startDesign, myLab, materials);
 design.subMenus = subDesignMenus;
 
 
-var categories = new SubMenu("categories","Shop all categories","#","submenu submenu_normal");
+var categories = new SubMenu("categories","Shop all categories","#","submenu");
 categories.content = new Content("DISCOVER OUR COLLECTIONS!",
     "Find out your style",
     "What you need, just different, just unique!",
     "menu_brief");
 
 
-var home = new SubMenu("home","Home","#","submenu submenu_normal");
-var jewerly = new SubMenu("jewerly","Jewerly","#","submenu submenu_normal");
-var art = new SubMenu("art","Art","#","submenu submenu_normal");
-var accessories = new SubMenu("accessories","Accessories","#","submenu submenu_normal");
+var home = new SubMenu("home","Home","#","submenu");
+var jewerly = new SubMenu("jewerly","Jewerly","#","submenu");
+var art = new SubMenu("art","Art","#","submenu");
+var accessories = new SubMenu("accessories","Accessories","#","submenu");
 var shop_submenus = new Array(categories, home, jewerly, art, accessories);
 shop.subMenus = shop_submenus;
 
-var blog = new SubMenu("blog","Blog","#","submenu submenu_normal");
-var events = new SubMenu("events","Events","#","submenu submenu_normal");
-var jobs = new SubMenu("jobs","Jobs for Designers","#","submenu submenu_normal");
+var blog = new SubMenu("blog","Blog","#","submenu");
+var events = new SubMenu("events","Events","#","submenu");
+var jobs = new SubMenu("jobs","Jobs for Designers","#","submenu");
 var community_subMenus = new Array(blog,events,jobs);
 community.subMenus=community_subMenus;
 blog.content = new Content(

@@ -1,0 +1,238 @@
+.design_line {
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.3;
+}
+.design_title {
+    font-family: SegoeWPN-Bold;
+    font-size: 35px;
+    color: #000000;
+
+}
+.design_by {
+    padding-left: 5px;
+    font-family: SegoeWPN;
+    font-size: 15px;
+    color: #000000;
+
+}
+.design_by_name {
+    font-family: SegoeWPN;
+    font-size: 15px;
+    color:#b4272d;
+}
+.design_title_bottom_line {
+    margin-top: 15px;
+}
+.design_category {
+    margin-top: 45px;
+    font-size: 20px;
+    font-family: "SegoeWPN";
+    font-weight: bold;
+    color: rgb(0,0,0);
+    padding-left: 0;
+}
+.design_favor {
+    position: relative;
+    padding-top: 25px;
+    padding-left: 0;
+}
+.design_favor div span {
+    line-height: 25px;
+}
+.design_favor_icon_wrap {
+    display: inline-block;
+}
+.design_favor_add {
+    position: relative;
+}
+.design_favor_like {
+    position: relative;
+}
+.design_favor_add_text {
+    position: absolute;
+    left:40px;
+    top: -2px;
+    font-size: 15px;
+    font-family: "SegoeWPN";
+    color: rgb(0, 0, 0);
+}
+.design_favor_like_text {
+    position: absolute;
+    left:40px;
+    top: 0px;
+    font-size: 15px;
+    font-family: "SegoeWPN";
+    color: rgb(0, 0, 0);
+}
+.i-heart,
+.i-thumb {
+    background: url("../images/design_detail/heart_thumb.png?v=11") no-repeat;
+    background-size: 23px 55px;
+    width: 25px;
+    height: 25px;
+}
+.i-heart {
+    display: block;
+}
+.i-thumb {
+    display: block;
+
+    background-position: 0 -30px;
+
+}
+.design_favor_bottom_line {
+    margin-top: 29px;
+}
+.design_overview {
+    padding-left: 0px;
+    padding-top: 20px;
+    color: #000000;
+}
+.design_overview_title {
+    font-family: SegoeWPN-Bold;
+    font-size: 15px;
+}
+.design_overview_content {
+    margin-top: 10px;
+    font-family: SegoeWPN;
+    font-size: 13px;
+}
+.design_favor_overview_line {
+    margin-top: 19px;
+}
+.design_choose {
+    padding-top: 20px;
+    padding-left: 0;
+}
+.design_choose_title {
+    font-family: SegoeWPN-Bold;
+    font-size: 15px;
+    color: #000000;
+}
+.design_choose_items {
+    margin-top: 15px;
+}
+.design_choose_item {
+    margin-left: -5px;
+}
+.design_choose_item img{
+    width: 50px;
+    height: 50px;
+}
+.design_choose_bottom_line {
+    margin-top: 9px;
+}
+.design_price {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 0;
+    color: #000000;
+}
+.design_price_title {
+    margin-top: -5px;
+    font-family: SegoeWPN-Bold;
+    font-size: 15px;
+}
+.design_price_amount {
+    margin-top: 5px;
+    font-family: SegoeWPN-Bold;
+    font-size: 30px;
+}
+.design_price_add_cart_btn {
+    position: absolute;
+    right: 0;
+    top: 34px;;
+
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: SegoeWPN-Bold;
+    font-size: 12px;
+    color: white;
+    background: -webkit-linear-gradient(left, #391211, #931a1d); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #391211, #931a1d); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #391211, #931a1d); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #391211, #931a1d); /* 标准的语法 */
+}
+
+.design_price_bottom_line {
+    margin-top: 19px;
+}
+.design_about {
+    padding-left: 0;
+    padding-top: 20px;
+    color: #000000;
+}
+.design_about_title {
+    font-family: SegoeWPN-Bold;
+    font-size: 15px;
+}
+.design_about_content {
+    margin-top: 15px;
+    font-family: SegoeWPN;
+    font-size: 13px;
+}
+.design_about_btn {
+    margin-top: 15px;
+}
+.design_about_btn a {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    background-color: #d9d9d9;
+    margin-right: 10px;
+}
+.design_about_bottom_line {
+    margin-top: 49px;
+}
+.design_show_swiper {
+    margin-top: 45px;
+    padding-left: 0;
+
+}
+.swiper-container {
+    width: 100%;
+    /*height: 505px;*/
+}
+.swiper-pagination-bullet {
+    width: 11px;
+    height: 11px;
+    opacity: 0.102;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #b4272d;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 7px;
+}
+.design_show_swiper_page {
+    width: 100%;
+    height: 50px;
+}
+.design_show_swiper_img {
+    width: 100%;
+}
+@media (max-width: 992px) {
+   .design_show_swiper {
+       padding-right: 0;
+   }
+    .design_about_btn a {
+        width: 80px;
+        height: 24px;
+        line-height: 24px;
+        margin-right:5px;
+    }
+}
+/*@media (max-width: 360px) {*/
+    /*.swiper-container {*/
+        /*width: 320px;*/
+        /*height: 370px;*/
+    /*}*/
+/*}*/

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>account not confirmed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--[if lt IE 8]>
+    <script>alert("您的浏览器版本太低了，本站对IE8以下版本浏览器无法提供支持，为保证更好的浏览体验，请升级您的IE或下载其它浏览器。推荐Chrome, Firefox, 360浏览器等!");window.close();
+    </script>
+    <![endif]-->
+    <!--[if lt IE9]>
+    <script src="../../assets/public/html5shiv.js"></script>
+    <script src="../../assets/public/respond.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../assets/public/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login.css" />
+    <script src="../../assets/public/jquery-2.2.3.min.js"></script>
+    <script src="../../assets/public/bootstrap/js/bootstrap.js"></script>
+    <!--sass --watch assets/css:public/css-->
+<body>
+<section class="login-megModel meg-model accountConfirm-megModel">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1 ">
+                <div class="meg-prompt-wrapper">
+                    <div class="meg-prompt">
+                        <div style="float:left;">
+                            <div class="first">Your account is not confirmed yet!</div>
+                            <div class="second">Please confirm registration at luca@pedrielli.org</div>
+                            <div class="third">Change address</div>
+                        </div>
+                        <div class="submit-div right-link">
+                            <a type="submit" class="submit-bar">RESEND LINK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="saveInfo-megModel hide" style="display:none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1 ">
+                <div class="save-info-wrapper">
+                    <div>
+                        <span>
+                            <input type="text" placeholder="Email address"/>
+                         </span>
+                    </div>
+                    <div>
+                        <a type="submit" class="save-info">SAVE INFO</a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '160px';
+                    } else {
+                        //docEl.style.fontSize = 16 * (clientWidth / 640) + 'px';
+                        docEl.style.fontSize = 160 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $('.third').click(function(){
+        if($('.saveInfo-megModel').hasClass('hide')){
+            $('.saveInfo-megModel').removeClass('hide').fadeIn(500);
+        }else{
+            $('.saveInfo-megModel').fadeOut(500,function(){
+                $('.saveInfo-megModel').addClass('hide');
+            });
+        }
+    })
+</script>
+</body>
+</html>

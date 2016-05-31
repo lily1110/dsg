@@ -92,7 +92,8 @@ Menu.prototype.onActive=function() {
     }
     $("#submenu").html(submenu_html);
     $(".submenu").css("opacity","1");
-    //$("#"+this.subMenus[0].instance).css("background","#931a1d");
+    $(".submenu_active").removeClass("submenu_active");
+    $("#"+this.subMenus[0].instance).addClass("submenu_active");
     switch (this.instance ) {
         case "design":
             AddTriangle($("#design_t"));
@@ -133,12 +134,9 @@ SubMenu.prototype.getComponent = function() {
 }
 SubMenu.prototype.onActive=function() {
     $(".submenu_active").removeClass("submenu_active");
-    if(this.subMenus) {
-        //if($("#"+this.instance).hasClass("submenu_normal")) {
-        //    $("#"+this.instance).removeClass("submenu_normal");
-        //}
-        $("#"+this.instance).addClass("submenu_active");
+    $("#"+this.instance).addClass("submenu_active");
 
+    if(this.subMenus) {
         var sub_html="";
         for (var i =0;i<this.subMenus.length;i++) {
             var item =  this.subMenus[i];
