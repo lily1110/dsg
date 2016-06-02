@@ -1,16 +1,3 @@
-//Object.prototype.getName = function(){
-//    s = this.constructor.toString();
-//    if(s.indexOf('function') == -1){
-//        return null;
-//    }else{
-//        s = s.replace('function','');
-//        var idx = s.indexOf('(');
-//        s = s.substring(0, idx);
-//        s = s.replace(" ", "");
-//    }
-//    return s;
-//}
-
 function Product(instance,name,material,count,amount,onDelete) {
     this.instance = instance;
     this.name = name;
@@ -43,7 +30,7 @@ Product.prototype.getComponent = function() {
     {
         _html+="" +
             "<div class='row cart_label_prods_item'>" +
-            "<div class='col-md-2 cart_label_count cart_label_count_item'>"+this.count+" X</div>" +
+            "<div class='col-md-2 cart_label_count cart_label_count_item'><span>"+this.count+" X</span></div>" +
             "<div class='col-md-8 cart_label_content '>" +
             "<div class='cart_label_content_item_name'>"+this.name+
             "<span style='float: right'>"+this.amount+" $</span>"+
@@ -51,7 +38,8 @@ Product.prototype.getComponent = function() {
             "<div class='cart_label_content_item_material'>"+this.material+"</div>" +
             "</div>" +
             "<div class='col-md-2 cart_label_operation'>"+
-            "<div onclick='"+this.getName()+".delete()' class='cart_label_operation_item_delete'>X</div>"+
+            //"<img onclick='deleteProduct("+this+")' src='../assets/images/header/remove button.png'/>"+
+            "<img onclick='"+this.instance+".delete()' src='../assets/images/header/remove button.png'/>"+
             "</div>" +
             "</div>";
     }
@@ -60,31 +48,35 @@ Product.prototype.getComponent = function() {
 }
 
 Product.prototype.delete = function() {
-    this.count--;
+    this.count=0;
     if($.isFunction(this.onDelete)) {
         this.onDelete(this)
     }
 }
 
 Carts.prototype.getComponent = function() {
-    var count = this.prods.length;
+    var count = 0;
     var amounts = 0;
 
     var prods_html="";
     for(var i=0;i<this.prods.length;i++) {
         prods_html+=this.prods[i].getComponent()
-        amounts+=this.prods[i].amount;
+        count += this.prods[i].count;
+        amounts+=(this.prods[i].amount*this.prods[i].count);
     }
-    var _html = "";
-    _html="<div class='row cart_label_row cart_label_row_total'>" +
-        "<div class='col-md-2 cart_label_count cart_label_count_total'>"+count+" X</div>" +
+    if(count==0) {
+        prods_html+="<div class='cart_label_prods_empty'>Empty</div>";
+    }
+    var _html ="";
+    _html+="<div class='row cart_label_row cart_label_row_total'>" +
+        "<div class='col-md-2 cart_label_count cart_label_count_total'><span><span>"+count+"</span> <span class='cart_label_count_total_x'>X</span></span></div>" +
         "<div class='col-md-8 cart_label_content cart_label_content_total_name'>"+this.name+
 
         "</div>" +
-        "<div class='col-md-2 cart_label_operation'><div class='cart_label_operation_delete'>"+
-        "X"+"</div></div>" +
+        "<div class='col-md-2 cart_label_operation'><div class='cart_label_operation_delete'>" +
+        "<span onclick='clearCarts()' class='glyphicon glyphicon-remove'></span></div></div>" +
         "</div>";
-    var _html_line = "<div class='row cart_label_line'><div class='col-md-12 cart_label_line'></div> </div>";
+    var _html_line = "<div class='row  cart_label_line'></div>";
     _html+=_html_line;
     _html+="<div class='row cart_label_row cart_label_row_prods'>" +
         "<div class='col-md-12'>" +
@@ -108,13 +100,39 @@ Carts.prototype.getComponent = function() {
         "</div>";
     return _html;
 }
-function deleteProduct(product) {
-    alert("delete");
+
+Carts.prototype.getCount = function() {
+    var count = 0;
+    for(var i=0;i<this.prods.length;i++) {
+        count += this.prods[i].count;
+    }
+    return count;
 }
 
-var prod1 = new Product("Object name","Material",9,10,deleteProduct);
-var prod2 =  new Product("Object name2","Material",8,9,deleteProduct)
+Carts.prototype.getAmount = function() {
+    var amounts = 0;
+    for(var i=0;i<this.prods.length;i++) {
+        amounts+=(this.prods[i].amount*this.prods[i].count);
+    }
+    return amounts;
+}
+function changeCartCountHtml() {
+    $("#cart_count").html(cart.getCount());
+    $("#cart_count_md").html(cart.getCount());
+    $("#cart_label_detail").html(cart.getComponent())
+
+}
+function deleteProduct(product) {
+    changeCartCountHtml()
+}
+
+var prod1 = new Product("prod1","Object name","Material",2,10,deleteProduct);
+var prod2 =  new Product("prod2","Object name2","Material",2,9,deleteProduct)
 var products = new Array(
     prod1,prod2
 );
 var cart = new Carts("Objects in your cart",products)
+function clearCarts() {
+    cart.prods=[]
+    changeCartCountHtml()
+}

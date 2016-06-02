@@ -3,8 +3,7 @@
 <header>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="../assets/public/jquery-2.2.3.min.js"></script>
-    <script src="../assets/public/bootstrap/js/bootstrap.js"></script>
+
     <link href="../assets/public/flexnav/css/flexnav.css" media="screen, projection" rel="stylesheet" type="text/css">
     <!--<link href="../assets/public/flexnav/css/page.css" media="screen, projection" rel="stylesheet" type="text/css">-->
     <link href="../assets/public/flexnav/css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -22,92 +21,92 @@
 <div class="nav-bar_shadow">
 </div>
 <div class="visible-md visible-lg " style="position: absolute;top: 0;width: 100%;z-index:999">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 ">
-                <a class="nav-bar-logo">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 ">
+            <a class="nav-bar-logo">
                     <img src="../assets/images/header/DSGNABLE_Logo.png" />
-                </a>
+            </a>
+        </div>
+        <div id="whole_menu" class="col-md-6">
+            <div class="row">
+                <div id="nav-bar"></div>
             </div>
-            <div id="whole_menu" class="col-md-6">
-                <div class="row">
-                    <div id="nav-bar"></div>
-                </div>
-                <div width="100%">
-                    <div class="row">
-                        <div class="submenus_background">
-                            <div class="col-md-3">
-                                <div class="border_y_left"></div>
-                                <div id="design_t" class="triangle_body" style="width: 101%;">
-                                    <div class="out">
-                                        <div class="in">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="split_line" class="border_split"></div>
-                            </div>
-                            <div class="col-md-1" >
-                                <div  class="triangle_body"  style="width: 115%;"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div id="shop_t" class="triangle_body" style="left:5px;">
-                                    <div class="out">
-                                        <div class="in" style="border-color: transparent transparent #202020 #202020;">
-                                        </div>
-                                    </div>
+            <div width="100%">
+            <div class="row">
+                <div class="submenus_background">
+                    <div class="col-md-3">
+                        <div class="border_y_left"></div>
+                        <div id="design_t" class="triangle_body" style="width: 101%;">
+                            <div class="out">
+                                <div class="in">
                                 </div>
                             </div>
-                            <div class="col-md-4" height="100%">
-                                <div id="community_t" class="triangle_body">
-                                    <div class="out">
-                                        <div class="in" style="border-color: transparent transparent #171512 #171512;">
-                                        </div>
-                                    </div>
+                        </div>
+                        <div id="split_line" class="border_split"></div>
+                    </div>
+                    <div class="col-md-1" >
+                        <div  class="triangle_body"  style="width: 115%;"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="shop_t" class="triangle_body" style="left:5px;">
+                            <div class="out">
+                                <div class="in" style="border-color: transparent transparent #202020 #202020;">
                                 </div>
-                                <div class="border_y_right"></div>
-
                             </div>
-
                         </div>
                     </div>
+                    <div class="col-md-4" height="100%">
+                        <div id="community_t" class="triangle_body">
+                            <div class="out">
+                                <div class="in" style="border-color: transparent transparent #171512 #171512;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border_y_right"></div>
+
+                    </div>
 
                 </div>
-                <div class="row main_menus">
-                    <div class="col-md-3" >
-                        <div id="submenu" class="submenus"></div>
-                    </div>
-                    <div class="col-md-9">
-                        <div id="menu_content" class="menu_content"></div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-3 user_operation">
-                <div class="row">
-                    <ul>
-                        <li class="col-xs-12 col-sm-12 col-md-4 shopping-cart">
-                            <div class="shopping_cart_hover cart_count_wrap">
-                                <img class="shopping-cart-img" src="../assets/images/header/cart.png"/>
-                                <div class="cart_count">
-                                    <div>1</div>
-                                </div>
-                            </div>
-                            <div class="cart_label">
-                                <div class='shopping_cart_hover cart_label_detail_triangle'></div>
-                                <div class="cart_label_bg">
-                                    <div class="row shopping_cart_hover">
-                                        <div id="cart_label_detail" class="col-md-12"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-12 col-md-4"><p>Login</p></li>
-                        <li class="col-xs-12 col-sm-12 col-md-4"><p>Sign up</p></li>
-                    </ul>
+
+            </div>
+            <div class="row main_menus">
+                <div class="col-md-3" >
+                    <div id="submenu" class="submenus"></div>
+                </div>
+                <div class="col-md-9">
+                    <div id="menu_content" class="menu_content"></div>
                 </div>
             </div>
         </div>
-
+        <div class="col-md-3 user_operation">
+            <div class="row">
+                <ul>
+                    <li class="col-xs-12 col-sm-12 col-md-4 shopping-cart">
+                        <div class="shopping_cart_hover cart_count_wrap">
+                            <img class="shopping-cart-img" src="../assets/images/header/cart.png"/>
+                            <div class="cart_count">
+                                <div id="cart_count">0</div>
+                            </div>
+                        </div>
+                        <div class="cart_label">
+                            <div class='shopping_cart_hover cart_label_detail_triangle'></div>
+                            <div class="cart_label_bg">
+                                <div class="row shopping_cart_hover">
+                                <div id="cart_label_detail" class="col-md-12"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-12 col-md-4"><p>Login</p></li>
+                    <li class="col-xs-12 col-sm-12 col-md-4"><p>Sign up</p></li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+</div>
 </div>
 <div class="visible-sm visible-xs" style="position: relative;padding-top: -0.625rem; width: 100%;z-index:999">
     <div class="row" style="margin-top: -0.625rem">
@@ -211,7 +210,7 @@
             </li>
             <li>
                 <a  href="/">Shopping Cart
-                    <p class="shopping-cart-count">1</p>
+                    <p id="cart_count_md" class="shopping-cart-count">0</p>
                 </a>
             </li>
             <li>
@@ -234,91 +233,35 @@
     </div>
 
 </div>
-<div class="header-search-shadow" >
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <div class="header-search-input">
-                    <input type="text" placeholder="Search"/>
-                    <i class="glyphicon glyphicon-search header-search-icon"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--<div class="header-search-shadow" >-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">-->
+                <!--<div class="header-search-input">-->
+                    <!--<input type="text" placeholder="Search"/>-->
+                    <!--<i class="glyphicon glyphicon-search header-search-icon"></i>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-</div>
+<!--</div>-->
 
 </body>
 
 <!--<script src="../assets/public/jquery-2.2.3.min.js"></script>-->
 <script src="../assets/public/jquery-2.2.3.min.js"></script>
+<script src="../assets/public/bootstrap/js/bootstrap.js"></script>
 <script src="../assets/public/flexnav/js/jquery.flexnav.js" type="text/javascript"></script>
 <script src="../assets/js/menus.js"></script>
 <script src="../assets/js/header_menus.js"></script>
 <script src="../assets/js/cart.js"></script>
+<script src="../assets/js/header.js"></script>
 <script type="text/javascript">
-    function resizeSubmenusBg() {
-        if($(window).width()< 1600) {
-            $(".submenus_background").css("height","1.5625rem").css("display","block");
-            $("#split_line").css("height","1.5625rem");
-        }
-        else {
-            $(".submenus_background").css("height","1.875rem").css("display","block");
-            $("#split_line").css("height","1.875rem");
-        }
-    }
-    function setEveryTop() {
-        var every_top = ($("#header_main_img").height()*0.5)+"px";
-        console.log(every_top)
-        $("#header_main_img_every").css("top",every_top);
-    }
+
 
     jQuery(document).ready(function($) {
-        $("#nav-bar").html(design.getComponent()+shop.getComponent()+community.getComponent());
-        $(".submenus_background").css("height","0px").css("display","none");
-        $("#cart_label_detail").html(cart.getComponent())
-        $(".cart_label").css("display","none")
-        $("#whole_menu").mouseout(function() {
-            if($("#menu_content").hasClass("show")) {
-                $("#menu_content").removeClass("show");
-            }
-            if($("#submenu").hasClass("show")) {
-                $("#submenu").removeClass("show");
-            }
-            $("#menu_content").addClass("hide");
-            $("#submenu").addClass("hide");
-            $(".submenus_background").css("height","0px");
-            $(".submenus_background").css("display","none");
-        }).mousemove(function() {
-            if($("#menu_content").hasClass("hide")) {
-                $("#menu_content").removeClass("hide");
-
-            }
-            if($("#submenu").hasClass("hide")) {
-                $("#submenu").removeClass("hide");
-
-            }
-            $("#menu_content").addClass("show");
-            $("#submenu").addClass("show");
-            if($("#submenu").children().length>0) {
-                resizeSubmenusBg();
-            }
-
-        });
-
-        $(".flexnav").flexNav();
-        setEveryTop();
-        $(window).resize(function() {
-            setEveryTop();
-        });
-
-        $(".shopping_cart_hover").mouseout(function() {
-            $(".cart_label").css("display","none")
-        }).mousemove(function() {
-            $(".cart_label").css("display","block")
-
-        });
-
+        initHeader();
     });
 
 

@@ -1,3 +1,10 @@
+@media (min-width: 1200px) {
+    #shopping_cart_container {
+        width: 1170px;
+        max-width: 1170px;
+    }
+}
+
 .design_line {
     height: 1px;
     background-color: #000000;
@@ -86,7 +93,7 @@
 }
 .design_overview {
     padding-left: 0px;
-    padding-top: 20px;
+    padding-top: 15px;
     color: #000000;
 }
 .design_overview_title {
@@ -99,10 +106,10 @@
     font-size: 13px;
 }
 .design_favor_overview_line {
-    margin-top: 19px;
+    margin-top: 9px;
 }
 .design_choose {
-    padding-top: 20px;
+    padding-top: 16px;
     padding-left: 0;
 }
 .design_choose_title {
@@ -111,7 +118,7 @@
     color: #000000;
 }
 .design_choose_items {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .design_choose_item {
     margin-left: -5px;
@@ -121,7 +128,7 @@
     height: 50px;
 }
 .design_choose_bottom_line {
-    margin-top: 9px;
+    margin-top: 14px;
 }
 .design_price {
     position: relative;
@@ -142,7 +149,7 @@
 .design_price_add_cart_btn {
     position: absolute;
     right: 0;
-    top: 34px;;
+    top: 33px;;
 
     width: 100px;
     height: 30px;
@@ -156,13 +163,16 @@
     background: -moz-linear-gradient(right, #391211, #931a1d); /* Firefox 3.6 - 15 */
     background: linear-gradient(to right, #391211, #931a1d); /* 标准的语法 */
 }
+.design_price_add_cart_btn:hover {
+    background:#931a1d;
+}
 
 .design_price_bottom_line {
-    margin-top: 19px;
+    margin-top: 18px;
 }
 .design_about {
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 17px;
     color: #000000;
 }
 .design_about_title {
@@ -170,14 +180,14 @@
     font-size: 15px;
 }
 .design_about_content {
-    margin-top: 15px;
+    margin-top: 13px;
     font-family: SegoeWPN;
     font-size: 13px;
 }
 .design_about_btn {
-    margin-top: 15px;
+    margin-top: 24px;
 }
-.design_about_btn a {
+.design_about_btn div {
     display: inline-block;
     width: 100px;
     height: 30px;
@@ -185,19 +195,18 @@
     text-align: center;
     color: rgb(102, 102, 102);
     background-color: #d9d9d9;
-    margin-right: 10px;
+    margin-right: 7px;
 }
 .design_about_bottom_line {
     margin-top: 49px;
 }
 .design_show_swiper {
-    margin-top: 45px;
+    margin-top: 50px;
     padding-left: 0;
-
+    padding-right: 30px;
 }
 .swiper-container {
     width: 100%;
-    /*height: 505px;*/
 }
 .swiper-pagination-bullet {
     width: 11px;
@@ -214,7 +223,7 @@
 }
 .design_show_swiper_page {
     width: 100%;
-    height: 50px;
+    height: 55px;
 }
 .design_show_swiper_img {
     width: 100%;
@@ -223,16 +232,11 @@
    .design_show_swiper {
        padding-right: 0;
    }
-    .design_about_btn a {
+    .design_about_btn div {
+        display: inline-block;
         width: 80px;
         height: 24px;
         line-height: 24px;
         margin-right:5px;
     }
 }
-/*@media (max-width: 360px) {*/
-    /*.swiper-container {*/
-        /*width: 320px;*/
-        /*height: 370px;*/
-    /*}*/
-/*}*/
